@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="15"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="carro_estado" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="220" y="80"/>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_estado_pk" type="pk-constr" table="public.carro_estado">
+		<columns names="estado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro_color_interior" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="80"/>
+	<column name="color_interior" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_color_interior_pk" type="pk-constr" table="public.carro_color_interior">
+		<columns names="color_interior" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro_color_exterior" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="860" y="80"/>
+	<column name="color_exterior" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_color_exterior_pk" type="pk-constr" table="public.carro_color_exterior">
+		<columns names="color_exterior" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_transmision" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="200" y="200"/>
+	<column name="tipo_transmision" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_transmision_pk" type="pk-constr" table="public.sistema_tipo_transmision">
+		<columns names="tipo_transmision" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_motor" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="200"/>
+	<column name="tipo_motor" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_motor_pk" type="pk-constr" table="public.sistema_tipo_motor">
+		<columns names="tipo_motor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_combustible" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="880" y="200"/>
+	<column name="tipo_combustible" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_combustible_pk" type="pk-constr" table="public.sistema_tipo_combustible">
+		<columns names="tipo_combustible" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_drivetrain" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="200" y="340"/>
+	<column name="tipo_drivetrain" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_drivetrain_pk" type="pk-constr" table="public.sistema_tipo_drivetrain">
+		<columns names="tipo_drivetrain" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor_tipo" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="340"/>
+	<column name="tipo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="vendedor_tipo_pk" type="pk-constr" table="public.vendedor_tipo">
+		<columns names="tipo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor_estado" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="840" y="340"/>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="vendedor_estado_pk" type="pk-constr" table="public.vendedor_estado">
+		<columns names="estado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="referencia" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="220" y="480"/>
+	<column name="marca" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="modelo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="year" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="referencia_pk" type="pk-constr" table="public.referencia">
+		<columns names="marca,modelo,year" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="520" y="480"/>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="zip_code">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="direccion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="seller_rating">
+		<type name="numeric" length="1" precision="1"/>
+	</column>
+	<column name="seller_reviews">
+		<type name="bigint" length="0"/>
+	</column>
+	<constraint name="vendedor_pk" type="pk-constr" table="public.vendedor">
+		<columns names="nombre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<domain name="rating" not-null="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<type name="numeric" length="1" precision="1"/>
+</domain>
+
+<table name="sistema" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="840" y="480"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="max_rendimiento">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="sistema_pk" type="pk-constr" table="public.sistema">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="700"/>
+	<column name="vin">
+		<type name="text" length="0"/>
+	</column>
+	<column name="numero_millas">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="precio_rel">
+		<type name="real" length="0"/>
+	</column>
+	<column name="value_for_money_rating_rel">
+		<type name="numeric" length="1" precision="1"/>
+	</column>
+</table>
+
+</dbmodel>
