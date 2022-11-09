@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="15"
+	 default-schema="public" default-owner="postgres">
+<database name="carsale" encoding="UTF8" lc-collate="Spanish_Spain.1252" lc-ctype="Spanish_Spain.1252" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<domain name="rating" not-null="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<type name="real" length="2"/>
+	<constraint name="rating_check" type="check">
+		<expression><![CDATA[((VALUE >= (1)::double precision) AND (VALUE <= (5)::double precision))]]></expression>
+	</constraint>
+</domain>
+
+<table name="carro_estado" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="80"/>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_estado_pkey" type="pk-constr" table="public.carro_estado">
+		<columns names="estado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro_color_interior" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="360" y="80"/>
+	<column name="color_interior" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_color_interior_pkey" type="pk-constr" table="public.carro_color_interior">
+		<columns names="color_interior" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro_color_exterior" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="700" y="80"/>
+	<column name="color_exterior" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="carro_color_exterior_pkey" type="pk-constr" table="public.carro_color_exterior">
+		<columns names="color_exterior" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_transmision" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1040" y="80"/>
+	<column name="tipo_transmision" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_transmision_pkey" type="pk-constr" table="public.sistema_tipo_transmision">
+		<columns names="tipo_transmision" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_motor" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1420" y="80"/>
+	<column name="tipo_motor" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_motor_pkey" type="pk-constr" table="public.sistema_tipo_motor">
+		<columns names="tipo_motor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_combustible" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="220"/>
+	<column name="tipo_combustible" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_combustible_pkey" type="pk-constr" table="public.sistema_tipo_combustible">
+		<columns names="tipo_combustible" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sistema_tipo_drivetrain" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="220"/>
+	<column name="tipo_drivetrain" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_tipo_drivetrain_pkey" type="pk-constr" table="public.sistema_tipo_drivetrain">
+		<columns names="tipo_drivetrain" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor_tipo" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="800" y="220"/>
+	<column name="tipo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="vendedor_tipo_pkey" type="pk-constr" table="public.vendedor_tipo">
+		<columns names="tipo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor_estado" layer="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1100" y="220"/>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="vendedor_estado_pkey" type="pk-constr" table="public.vendedor_estado">
+		<columns names="estado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="referencia" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1420" y="220"/>
+	<column name="marca" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="modelo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="year" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="referencia_pkey" type="pk-constr" table="public.referencia">
+		<columns names="marca,modelo,year" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vendedor" layer="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="380"/>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="tipo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="zip_code" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="direccion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="seller_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="seller_reviews">
+		<type name="bigint" length="0"/>
+	</column>
+	<constraint name="vendedor_pkey" type="pk-constr" table="public.vendedor">
+		<columns names="nombre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sistema_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="sistema" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="460" y="600"/>
+	<column name="id" not-null="true" sequence="public.sistema_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="max_rendimiento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="tipo_transmision" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="tipo_motor" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="tipo_combustible" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="tipo_drivetrain" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="sistema_pkey" type="pk-constr" table="public.sistema">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carro" layer="0" collapse-mode="2" max-obj-count="22" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="960" y="500"/>
+	<column name="vin" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="numero_millas" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="color_interior">
+		<type name="text" length="0"/>
+	</column>
+	<column name="color_exterior">
+		<type name="text" length="0"/>
+	</column>
+	<column name="precio_rel">
+		<type name="real" length="0"/>
+	</column>
+	<column name="value_for_money_rating_rel">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="consumer_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="consumer_reviews">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="comfort_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="reliabilityy_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="exterior_styling_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="performance_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="interior_design_rating">
+		<type name="public.rating" length="0"/>
+	</column>
+	<column name="marca">
+		<type name="text" length="0"/>
+	</column>
+	<column name="modelo">
+		<type name="text" length="0"/>
+	</column>
+	<column name="year">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nombre_vendedor">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="carro_pkey" type="pk-constr" table="public.carro">
+		<columns names="vin" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="vendedor_tipo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.vendedor_tipo" table="public.vendedor">
+	<columns names="tipo" ref-type="src-columns"/>
+	<columns names="tipo" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendedor_estado_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.vendedor_estado" table="public.vendedor">
+	<columns names="estado" ref-type="src-columns"/>
+	<columns names="estado" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sistema_tipo_transmision_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sistema_tipo_transmision" table="public.sistema">
+	<columns names="tipo_transmision" ref-type="src-columns"/>
+	<columns names="tipo_transmision" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sistema_tipo_motor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sistema_tipo_motor" table="public.sistema">
+	<columns names="tipo_motor" ref-type="src-columns"/>
+	<columns names="tipo_motor" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sistema_tipo_combustible_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sistema_tipo_combustible" table="public.sistema">
+	<columns names="tipo_combustible" ref-type="src-columns"/>
+	<columns names="tipo_combustible" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sistema_tipo_drivetrain_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sistema_tipo_drivetrain" table="public.sistema">
+	<columns names="tipo_drivetrain" ref-type="src-columns"/>
+	<columns names="tipo_drivetrain" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="carro_estado_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.carro_estado" table="public.carro">
+	<columns names="estado" ref-type="src-columns"/>
+	<columns names="estado" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="carro_color_interior_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.carro_color_interior" table="public.carro">
+	<columns names="color_interior" ref-type="src-columns"/>
+	<columns names="color_interior" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="carro_color_exterior_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.carro_color_exterior" table="public.carro">
+	<columns names="color_exterior" ref-type="src-columns"/>
+	<columns names="color_exterior" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="carro_marca_modelo_year_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.referencia" table="public.carro">
+	<columns names="marca,modelo,year" ref-type="src-columns"/>
+	<columns names="marca,modelo,year" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_vendedor_vendedor_tipo" type="relfk" layer="0"
+	 custom-color="#b31489"
+	 src-table="public.vendedor"
+	 dst-table="public.vendedor_tipo" reference-fk="vendedor_tipo_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_vendedor_vendedor_estado" type="relfk" layer="0"
+	 custom-color="#7bf465"
+	 src-table="public.vendedor"
+	 dst-table="public.vendedor_estado" reference-fk="vendedor_estado_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_sistema_sistema_tipo_transmision" type="relfk" layer="0"
+	 custom-color="#80431c"
+	 src-table="public.sistema"
+	 dst-table="public.sistema_tipo_transmision" reference-fk="sistema_tipo_transmision_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_sistema_sistema_tipo_motor" type="relfk" layer="0"
+	 custom-color="#b15e89"
+	 src-table="public.sistema"
+	 dst-table="public.sistema_tipo_motor" reference-fk="sistema_tipo_motor_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_sistema_sistema_tipo_combustible" type="relfk" layer="0"
+	 custom-color="#24a47e"
+	 src-table="public.sistema"
+	 dst-table="public.sistema_tipo_combustible" reference-fk="sistema_tipo_combustible_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_sistema_sistema_tipo_drivetrain" type="relfk" layer="0"
+	 custom-color="#d49985"
+	 src-table="public.sistema"
+	 dst-table="public.sistema_tipo_drivetrain" reference-fk="sistema_tipo_drivetrain_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_carro_carro_estado" type="relfk" layer="0"
+	 custom-color="#46c7d2"
+	 src-table="public.carro"
+	 dst-table="public.carro_estado" reference-fk="carro_estado_fkey"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_carro_carro_color_interior" type="relfk" layer="0"
+	 custom-color="#379e67"
+	 src-table="public.carro"
+	 dst-table="public.carro_color_interior" reference-fk="carro_color_interior_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_carro_carro_color_exterior" type="relfk" layer="0"
+	 custom-color="#8c3e75"
+	 src-table="public.carro"
+	 dst-table="public.carro_color_exterior" reference-fk="carro_color_exterior_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_carro_referencia" type="relfk" layer="0"
+	 custom-color="#75b417"
+	 src-table="public.carro"
+	 dst-table="public.referencia" reference-fk="carro_marca_modelo_year_fkey"
+	 src-required="false" dst-required="false"/>
+
+<permission>
+	<object name="public" type="schema"/>
+	<roles names="postgres"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="public" type="schema"/>
+	<privileges create="true" usage="true"/>
+</permission>
+</dbmodel>
