@@ -1,0 +1,111 @@
+CREATE DOMAIN rating
+AS real NOT NULL
+CHECK(VALUE BETWEEN 1 AND 5);
+
+CREATE TABLE carro_estado (
+	estado text PRIMARY KEY
+);
+
+CREATE TABLE carro_color_interior(
+	color_interior text PRIMARY KEY
+);
+
+CREATE TABLE carro_color_exterior(
+	color_exterior text PRIMARY KEY
+);
+
+CREATE TABLE sistema_tipo_transmision (
+	tipo_transmision text PRIMARY KEY
+);
+
+CREATE TABLE sistema_tipo_motor(
+	tipo_motor text PRIMARY KEY
+);
+
+CREATE TABLE sistema_tipo_combustible(
+	tipo_combustible text PRIMARY KEY
+);
+
+CREATE TABLE sistema_tipo_drivetrain(
+	tipo_drivetrain text PRIMARY KEY
+);
+
+CREATE TABLE vendedor_tipo(
+	tipo text PRIMARY KEY
+);
+
+CREATE TABLE vendedor_estado(
+	estado text PRIMARY KEY
+);
+
+CREATE TABLE referencia (
+	marca text,
+	modelo text, 
+	year smallint,
+	PRIMARY KEY(marca, modelo, year)
+);
+
+CREATE TABLE vendedor(
+	nombre text,
+	tipo text NOT NULL,
+	zip_code int NOT NULL,
+	estado text NOT NULL,
+	direccion text NOT NULL,
+	seller_rating rating,
+	seller_reviews bigint,
+	PRIMARY KEY(nombre),
+	FOREIGN KEY(tipo)
+		REFERENCES vendedor_tipo(tipo),
+	FOREIGN KEY(estado)
+		REFERENCES vendedor_estado(estado)
+);
+
+CREATE TABLE sistema(
+	id serial,
+	max_rendimiento int NOT NULL,
+	tipo_transmision text NOT NULL,
+	tipo_motor text NOT NULL,
+	tipo_combustible text NOT NULL,
+	tipo_drivetrain text NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(tipo_transmision)
+		REFERENCES sistema_tipo_transmision(tipo_transmision),
+	FOREIGN KEY(tipo_motor)
+		REFERENCES sistema_tipo_motor(tipo_motor),
+	FOREIGN KEY(tipo_combustible)
+		REFERENCES sistema_tipo_combustible(tipo_combustible),
+	FOREIGN KEY(tipo_drivetrain)
+		REFERENCES sistema_tipo_drivetrain(tipo_drivetrain)
+);
+
+CREATE TABLE carro(
+	vin text,
+	estado text NOT NULL,
+	numero_millas int NOT NULL,
+	color_interior text,
+	color_exterior text,
+	precio_rel real,
+	value_for_money_rating_rel rating,
+	consumer_rating rating,
+	consumer_reviews bigint,
+	comfort_rating rating,
+	reliabilityy_rating rating,
+	exterior_styling_rating rating,
+	performance_rating rating,
+	interior_design_rating rating,
+	marca text,
+	modelo text, 
+	year smallint,
+	nombre_vendedor text,
+	id int,
+	PRIMARY KEY(vin),
+	FOREIGN KEY(estado)
+		REFERENCES carro_estado(estado),
+	FOREIGN KEY(color_interior)
+		REFERENCES carro_color_interior(color_interior),
+	FOREIGN KEY(color_exterior)
+		REFERENCES carro_color_exterior(color_exterior),
+	FOREIGN KEY(marca, modelo, year)
+		REFERENCES referencia(marca, modelo, year)
+
+);
